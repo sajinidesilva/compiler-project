@@ -43,6 +43,7 @@ public class Parser {
     void match(int t) throws IOException {
         if ( look.tag == t && skipFlag==-1) {
             matchExecuted=true;
+
             move();
         } else if(skipFlag==1) {
             skipFlag=-1;
