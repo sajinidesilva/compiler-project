@@ -123,4 +123,8 @@ public class Lexer {
     public void setCurrentType(Type currentType) {
         this.currentType = currentType;
     }
+
+    public Hashtable getWords(){
+        return words;
+    }
 }
