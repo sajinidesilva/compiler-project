@@ -8,9 +8,9 @@ package lexer; /**
 // File Lexer.java
 import java. io .* ;
 import java. util.* ;
-
 import inter.Id;
 import symbols.*;
+
 public class Lexer {
 
     public static int line = 1;
@@ -126,5 +126,9 @@ public class Lexer {
 
     public Hashtable getWords(){
         return words;
+    }
+
+    public char getPeek(){
+        return peek;
     }
 }
