@@ -15,6 +15,7 @@ public class Parser {
     public boolean matchExecuted=false;
 
     public StringBuffer postFix=new StringBuffer();
+    public boolean Lexecuted = false;
     private static String lookahead;
     private Lexer lexer;// lexical analyzer for this parser
     private StackMachine stackMachine;
@@ -133,6 +134,7 @@ public class Parser {
         System.out.println("Postfix notation and value of the statement");
         System.out.println(postFix);
         System.out.println();
+        Lexecuted=true;
         postFix=new StringBuffer();
         match(';');
         L1();

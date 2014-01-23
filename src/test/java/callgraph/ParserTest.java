@@ -54,6 +54,27 @@ public class ParserTest {
 
     }
 
+
+    @Test
+    public void testL1() throws Exception {
+
+        Lexer lexer=new Lexer();
+        StackMachine stackMachine=new StackMachine();
+        String s = "float c,d; int b,a;\n" +
+                "c=b+a*c;\n" +
+                "3*((3+7));\n" +
+                "a+3*6;\n" +
+                "a=(2+3)*4;\n" +
+                "d=2.32+3.24;\n" +
+                "b=a+2;" ;
+        System.setIn(new ByteArrayInputStream(s.getBytes()));
+        parser=new Parser(lexer,stackMachine);
+        parser.P();
+        assertTrue(parser.Lexecuted);
+
+
+    }
+
     @Test(expected = Error.class)
     public void testN1() throws Exception {
 
