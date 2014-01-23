@@ -35,4 +35,34 @@ public class ThreeAddressCodeGeneratorTest {
         assertEquals(leaf.token,token);
 
     }
+
+    @Test
+    public void testInsertAndGetLeaf2() throws Exception {
+        ThreeAddressCodeGenerator addrCideGen = new ThreeAddressCodeGenerator();
+        Token token =new Token(257);
+        token.type = "int";
+        token.lexeme = "b";
+        Leaf leaf = new Leaf(token);
+        AbstractNode.processedSymbols.add(leaf);
+        Leaf leaf2 = addrCideGen.insertAndGetLeaf(token);
+        assertEquals(leaf2.token,leaf.token);
+
+    }
+
+    @Test
+    public void testInsertAndGetLeaf3() throws Exception {
+        ThreeAddressCodeGenerator addrCideGen = new ThreeAddressCodeGenerator();
+        Token token1 =new Token(259);
+        token1.type = "float";
+        token1.lexeme = "a";
+        Leaf leaf = new Leaf(token1);
+
+        Token token2 =new Token(257);
+        token2.type = "int";
+        token2.lexeme = "b";
+        AbstractNode.processedSymbols.add(leaf);
+        Leaf leaf2 = addrCideGen.insertAndGetLeaf(token2);
+        assertEquals(leaf2.token,token2);
+
+    }
 }
