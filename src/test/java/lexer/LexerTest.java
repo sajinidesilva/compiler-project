@@ -26,7 +26,6 @@ public class LexerTest {
         String testString="float a;";
         System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
         Lexer lex=new Lexer();
-        Token testResult=lex.scan();
 
         assertEquals("float", lex.getCurrentType().lexeme);
     }
@@ -37,7 +36,6 @@ public class LexerTest {
         String testString="int";
         System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
         Lexer lex=new Lexer();
-        Token testResult=lex.scan();
 
         assertEquals("int", lex.getCurrentType().lexeme);
     }
@@ -60,29 +58,25 @@ public class LexerTest {
     @Test
     public void testScanDigitInt() throws IOException {
 
-        Id testId = new Id(257,"a");
         Lexer lex=new Lexer();
-        lex.getWords().put("a",testId);
-        String testString="a+3*6;";
+        String testString="6;";
         System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
 
         Token testResult=lex.scan();
 
-        assertEquals("a", testResult.lexeme);
+        assertTrue(testResult instanceof Num);
     }
 
     @Test
     public void testScanDigitFloat() throws IOException {
 
-        Id testId = new Id(257,"a");
         Lexer lex=new Lexer();
-        lex.getWords().put("a",testId);
-        String testString="a+3*6.1;";
+        String testString="6.1;";
         System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
 
         Token testResult=lex.scan();
 
-        assertEquals("a", testResult.lexeme);
+        assertTrue(testResult instanceof Real);
     }
 
     @Test(expected = Error.class)
@@ -91,10 +85,19 @@ public class LexerTest {
         Lexer lex=new Lexer();
         String testString="abc";
         System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
+        lex.scan();
+    }
 
-        Token testResult=lex.scan();
+    @Test
+    public void testScanNewLine() throws IOException {
 
-        assertEquals("a", testResult.lexeme);
+        Lexer lex=new Lexer();
+        String testString="\n";
+        System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
+
+        int line=Lexer.line;
+        lex.scan();
+        assertEquals(Lexer.line, line+1);
     }
 
     @Test
@@ -110,6 +113,7 @@ public class LexerTest {
         assertEquals(lex.getPeek(),' ');
     }
 
+
     @Test
     public void testReadch2() throws IOException {
 
@@ -122,9 +126,5 @@ public class LexerTest {
         assertFalse(isRead);
         assertEquals(lex.getPeek(),'a');
     }
-
-
-
-
 
 }
