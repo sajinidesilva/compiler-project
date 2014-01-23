@@ -7,6 +7,8 @@ import org.junit.Test;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created with IntelliJ IDEA.
@@ -93,6 +95,32 @@ public class LexerTest {
         Token testResult=lex.scan();
 
         assertEquals("a", testResult.lexeme);
+    }
+
+    @Test
+    public void testReadch1() throws IOException {
+
+        Lexer lex=new Lexer();
+        String testString="a";
+        System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
+
+        boolean isRead=lex.readch('a');
+
+        assertTrue(isRead);
+        assertEquals(lex.getPeek(),' ');
+    }
+
+    @Test
+    public void testReadch2() throws IOException {
+
+        Lexer lex=new Lexer();
+        String testString="a";
+        System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
+
+        boolean isRead=lex.readch('b');
+
+        assertFalse(isRead);
+        assertEquals(lex.getPeek(),'a');
     }
 
 
