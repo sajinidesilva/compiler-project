@@ -272,4 +272,12 @@ public class Parser {
         }
         return abstractNode;
     }
+
+    public Token getLook(){
+        return look;
+    }
+
+    public void setLook(Token token){
+        look=token;
+    }
 }
