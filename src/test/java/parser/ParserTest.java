@@ -70,27 +70,6 @@ public class ParserTest {
         assertTrue("Test Failure",testresult.type==null);
     }
 
-//    @Rule
-//    public ExpectedException thrown = ExpectedException.none();
-//
-//    @Test
-//    public void testF3() throws Exception {
-//        Lexer lex = new Lexer();
-//        StackMachine stama = new StackMachine();
-//        String s="float a;\t";
-//        try{
-//        System.setIn(new ByteArrayInputStream(s.getBytes()));
-//        Parser p1 = new Parser(lex,stama) ;
-//        AbstractNode testresult;
-//        p1.look.tag = new Integer(23);
-//        testresult = p1.F();
-//        }
-//        catch (Exception e)  {
-//               assertEquals("Syntax Error",e.getMessage());
-//        }
-
-
-
 }
 
 
