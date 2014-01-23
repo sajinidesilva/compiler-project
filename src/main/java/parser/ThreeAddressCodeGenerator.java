@@ -68,7 +68,7 @@ public class ThreeAddressCodeGenerator {
         return n;
     }
 
-    Leaf insertAndGetLeaf(Token token) throws IOException{
+   public Leaf insertAndGetLeaf(Token token) throws IOException{
 
         Leaf leaf;
         for (AbstractNode abstractNode:AbstractNode.processedSymbols) {
