@@ -26,6 +26,7 @@ public class LexerTest {
         String testString="float a;";
         System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
         Lexer lex=new Lexer();
+        lex.scan();
 
         assertEquals("float", lex.getCurrentType().lexeme);
     }
@@ -36,6 +37,7 @@ public class LexerTest {
         String testString="int";
         System.setIn(new java.io.ByteArrayInputStream(testString.getBytes()));
         Lexer lex=new Lexer();
+        lex.scan();
 
         assertEquals("int", lex.getCurrentType().lexeme);
     }
