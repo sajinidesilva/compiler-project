@@ -15,7 +15,7 @@ import org.junit.Test;
  * To change this template use File | Settings | File Templates.
  */
 public class StackMachineTest {
-    /*  @Test
+      @Test
     public void testEvaluate() throws Exception {
               StackMachine stackMachine =new StackMachine();
               stackMachine.evaluate("+");
@@ -23,7 +23,7 @@ public class StackMachineTest {
 
 
 
-    }*/
+    }
     @Test
     public void testEvaluateTwo() throws Exception {
         StackMachine stackMachine =new StackMachine();
